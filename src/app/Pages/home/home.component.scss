@@ -1,0 +1,447 @@
+@import "../../../variables";
+@import "../../../mixins";
+@import "../../../extend";
+
+.main-section {
+  .top-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .content {
+      max-width: 633px;
+      margin-right: 95px;
+
+      h1 {
+        font-weight: bold;
+        font-size: 68px;
+        color: $secondary-color;
+        margin-bottom: 20px;
+      }
+
+      p {
+        color: $primary-color;
+        margin-top: 37px;
+        margin-bottom: 37px;
+        font-size: 27px;
+      }
+
+      .cta-button {
+        width: 317.8px;
+        height: 67.73px;
+        padding: 10px 20px;
+        color: white;
+        background-color: #01a299;
+        border: none;
+        border-radius: 15.63px;
+        font-size: 20.84px;
+        cursor: pointer;
+        display: flex;
+        transition: 0.3s;
+        justify-content: center;
+        align-items: center;
+        @extend .basic-shadow;
+
+        &:hover {
+          background-color: $secondary-color;
+        }
+      }
+    }
+
+    .doctor-section {
+      width: 450px;
+
+      img {
+        width: 100%;
+        margin-right: 20px;
+      }
+    }
+  }
+
+  .bottom-bar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgba(229, 241, 250, 0.49);
+    padding: 40px 0;
+    border-radius: 18px;
+    font-size: 16px;
+    font-weight: 600;
+    flex-wrap: wrap;
+    @extend .basic-shadow;
+
+    a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: $light-color;
+      border-radius: 12px;
+      padding: 15px 30px;
+      color: #000;
+      @extend .basic-shadow;
+      transition: $main-transition;
+
+      img {
+        margin-right: 20px;
+      }
+
+      &:hover {
+        background-color: $secondary-color;
+        color: $light-color;
+      }
+    }
+
+    .city-area {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #ffffff;
+      border-radius: 12px;
+      padding: 15px 30px;
+      color: #000;
+      gap: 150px;
+      @extend .basic-shadow;
+
+      .gap-between {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 25px;
+      }
+
+      button {
+        background-color: transparent;
+        border: none;
+        border-radius: 15px;
+        padding: 6px 12px;
+        transition: $main-transition;
+
+        &:hover {
+          background-color: $secondary-color;
+        }
+      }
+    }
+
+    .res-btn {
+      font-weight: 400;
+      padding: 15px 70px;
+      color: white;
+      background-color: #01a299;
+      border-radius: 15.63px;
+
+      &:hover {
+        background-color: $secondary-color;
+      }
+    }
+  }
+}
+
+.activities-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .activities-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+    // padding: 0px 200px;
+
+    .activities-content {
+      min-width: 325px;
+      padding: 30px 40px;
+      border-radius: 15px;
+      cursor: cell;
+      @extend .basic-shadow;
+      transition: $main-transition;
+
+      img {
+        padding-bottom: 20px;
+      }
+
+      span {
+        position: relative;
+        font-size: 15px;
+        font-weight: 700;
+        padding-bottom: 20px;
+
+        &::before {
+          content: "";
+          position: absolute;
+          width: 50px;
+          height: 2px;
+          background-color: #01a299;
+          bottom: 0;
+        }
+      }
+
+      p {
+        color: #737373;
+        margin-top: 40px;
+        margin-bottom: 0;
+      }
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+}
+
+.healnet-section {
+  text-align: center;
+
+  h3 {
+    font-size: 32px;
+    font-weight: 500;
+    margin-bottom: 109px;
+    color: #01a299;
+
+    span {
+      color: #3d3d3d;
+    }
+  }
+
+  .healnet-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .HealNet-content {
+      padding: 25px 169px 50px 25px;
+      background: rgba(217, 217, 217, 0.09);
+      text-align: left;
+      border: 1px solid #eee;
+      border-radius: 24px;
+      max-width: 800px;
+      @extend .basic-shadow;
+
+      p {
+        line-height: 2.5;
+        margin-bottom: 30px;
+      }
+
+      a {
+        font-weight: 400;
+        padding: 15px 70px;
+        color: white;
+        background-color: #01a299;
+        border-radius: 15.63px;
+        @extend .basic-shadow;
+        transition: $main-transition;
+
+        &:hover {
+          background-color: $secondary-color;
+        }
+      }
+    }
+  }
+}
+
+.upload-section {
+  background-color: $secondary-color;
+  color: white;
+  padding: 30px 20px;
+  position: relative;
+  overflow: hidden;
+  padding: 40px 40px;
+  border-radius: 32px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 137px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  @extend .basic-shadow;
+
+  .container {
+    text-align: center;
+    width: 632px;
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 24px;
+      font-weight: 600;
+    }
+
+    p {
+      font-size: 17px;
+      line-height: 1.6;
+      font-weight: 400;
+      margin-bottom: 40px;
+    }
+
+    .upload-btn {
+      @extend .basic-shadow;
+      font-weight: 400;
+      padding: 15px 70px;
+      color: white;
+      background-color: #01a299;
+      border-radius: 12px;
+      transition: 0.3s;
+
+      &:hover {
+        background-color: #007175;
+      }
+    }
+  }
+
+  .image-container {
+    width: 368px;
+
+    .cloud-icon {
+      width: 300px;
+      height: 300px;
+      background-color: #111a3a;
+      border-radius: 50%;
+
+      img {
+        width: 300px;
+      }
+    }
+  }
+}
+
+.appointments-section {
+  background-color: rgba(229, 241, 250, 0.39);
+  padding: 50px 20px;
+  text-align: center;
+  margin-top: 137px;
+  border-radius: 32px;
+  @extend .basic-shadow;
+
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-weight: normal;
+    line-height: 1.5;
+
+    span {
+      color: $primary-color;
+    }
+  }
+
+  p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    color: #a4a4a4;
+  }
+
+  .buttons-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .btns {
+    background-color: #fff;
+    border: 1px solid #bcbcbc;
+    min-width: 244px;
+    border-radius: 10px;
+    padding: 15px 0;
+    margin: 0px 30px 40px;
+    transition: 0.3s;
+    @extend .basic-shadow;
+  }
+
+  .see-more-btn {
+    color: $primary-color;
+  }
+
+  .reservation-btn {
+    background-color: $primary-color;
+    color: #fff;
+    border: none;
+  }
+
+  .btns:hover {
+    background-color: $secondary-color;
+    color: #fff;
+  }
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .main-section .top-content .content h1 {
+    font-size: 36px;
+  }
+
+  .main-section .top-content .content p {
+    font-size: 18px;
+  }
+
+  .main-section .top-content .content .cta-button {
+    font-size: 16px;
+  }
+
+  .bottom-bar {
+    padding: 20px 0;
+  }
+
+  .activities-section .activities-container {
+    padding: 0 20px;
+  }
+
+  .healnet-section .healnet-container .HealNet-content {
+    padding: 20px;
+  }
+
+  .upload-section {
+    padding: 20px;
+  }
+
+  .appointments-section {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-section .top-content .content h1 {
+    font-size: 28px;
+  }
+
+  .main-section .top-content .content p {
+    font-size: 16px;
+  }
+
+  .main-section .top-content .content .cta-button {
+    font-size: 14px;
+  }
+
+  .bottom-bar {
+    padding: 10px 0;
+  }
+
+  .activities-section .activities-container {
+    padding: 0 10px;
+  }
+
+  .healnet-section .healnet-container .HealNet-content {
+    padding: 10px;
+  }
+
+  .upload-section {
+    padding: 10px;
+  }
+
+  .appointments-section {
+    padding: 10px;
+  }
+}
+@media (max-width: 992px) {
+  .doctor-section {
+    display: none;
+  }
+  .top-content {
+    justify-content: center !important;
+  }
+}
+
+@media (max-width: 1200px) {
+  .bottom-bar {
+    gap: 20px;
+  }
+}

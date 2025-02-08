@@ -1,0 +1,216 @@
+@import "../../../variables";
+@import "../../../mixins";
+@import "../../../extend";
+
+.register-container {
+  display: flex;
+  border-radius: 35px;
+  @extend .basic-shadow;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.031372549);
+  padding-left: 0;
+  gap: 100px;
+  min-height: 745px;
+
+  .hello-content {
+    background-color: #01a299;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 35%;
+    padding: 0 60px;
+    text-align: center;
+    color: white;
+    h2 {
+      position: relative;
+      font-weight: 700;
+      font-size: 40px;
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: -30px;
+        left: 50%;
+        background: #ffff;
+        height: 3px;
+        width: 71px;
+        transform: translate(-50%);
+        border-radius: 5px;
+      }
+    }
+    p {
+      color: #dddddd;
+      font-size: 19px;
+      margin: 50px 0 80px;
+    }
+    .btns {
+      background-color: transparent;
+      border: 2px solid rgba(255, 255, 255, 0.6);
+      min-width: 230px;
+      border-radius: 10px;
+      padding: 8px 0;
+      transition: 0.3s;
+      color: white;
+      font-size: 20px;
+      &:hover {
+        background-color: $secondary-color;
+        @extend .basic-shadow;
+      }
+    }
+    img {
+      position: absolute;
+    }
+    .large-circle {
+      bottom: 75px;
+      right: -60px;
+    }
+    .small-circle {
+      width: 85px;
+      bottom: 50px;
+      right: 140px;
+    }
+    .Polygon_1 {
+      top: 170px;
+      left: 12px;
+    }
+    .Polygon_2 {
+      top: 45px;
+      right: 20px;
+    }
+    .Polygon_3 {
+      bottom: 67px;
+      left: 57px;
+      width: 50px;
+    }
+  }
+
+  .form-container {
+    padding: 30px;
+    width: 400px;
+    padding: 30px;
+    width: 50%;
+    .input-50 {
+      max-width: 45%;
+    }
+    form {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      justify-items: center;
+      gap: 15px;
+    }
+    h2 {
+      text-align: left;
+      margin-bottom: 30px;
+    }
+
+    .input-group {
+      margin-bottom: 15px;
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+        font-size: 20px;
+        font-weight: 500;
+      }
+
+      input {
+        width: 100%;
+        padding: 15px 15px;
+        border-radius: 14px;
+        box-sizing: border-box;
+        border: 1px solid #dcd7d7;
+        @extend .basic-shadow;
+      }
+      input::placeholder {
+        text-align: center;
+        color: #9a9a9a;
+      }
+      input:focus {
+        outline: none;
+        border: 2px solid $primary-color;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+      }
+      textarea {
+        width: 100%;
+        padding: 15px 15px;
+        border-radius: 14px;
+        box-sizing: border-box;
+        border: 1px solid #dcd7d7;
+        @extend .basic-shadow;
+      }
+      textarea::placeholder {
+        text-align: center;
+        color: #9a9a9a;
+      }
+      textarea:focus {
+        outline: none;
+        border: 2px solid $primary-color;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+      }
+      select {
+        width: 100%;
+        padding: 15px 15px;
+        border-radius: 14px;
+        box-sizing: border-box;
+        border: 1px solid #dcd7d7;
+        @extend .basic-shadow;
+      }
+      select::placeholder {
+        text-align: center;
+        color: #9a9a9a;
+      }
+      select:focus {
+        outline: none;
+        border: 2px solid $primary-color;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+      }
+    }
+
+    .checkbox-group {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+
+      label {
+        margin-left: 5px;
+      }
+      span {
+        color: $primary-color;
+      }
+      input[type="checkbox"] {
+        width: 26px;
+        height: 26px;
+        margin: 0 10px;
+        @extend .basic-shadow;
+      }
+    }
+
+    button {
+      background-color: #01a299;
+      color: white;
+      padding: 20px 15px;
+      border: none;
+      border-radius: 14px;
+      cursor: pointer;
+      width: 100%;
+      @extend .basic-shadow;
+      transition: $main-transition;
+      &:hover {
+        background-color: $secondary-color;
+      }
+    }
+
+    .login-link {
+      text-align: center;
+      margin-top: 15px;
+
+      a {
+        color: $primary-color;
+        text-decoration: none;
+      }
+    }
+  }
+}

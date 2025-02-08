@@ -1,0 +1,69 @@
+<div class="register-container section-margin">
+  <div class="hello-content">
+    <h2>Hello , Friend!</h2>
+    <p>fill up personal information and start journey with us</p>
+    <a routerLink="/signin" class="btns">sign in</a>
+    <img src="Shapes/circle.svg" class="large-circle" alt="" />
+    <img src="Shapes/circle.svg" class="small-circle" alt="" />
+    <img src="Shapes/Polygon_1.svg" class="Polygon_1" alt="" />
+    <img src="Shapes/Polygon_2.svg" class="Polygon_2" alt="" />
+    <img src="Shapes/Polygon_3.svg" class="Polygon_3" alt="" />
+  </div>
+  <div class="form-container">
+    <h2>Sign up For account</h2>
+    <h3 [ngClass]="createForm.valid? '': 'invalidField'">{{createForm.valid ?"": "Please Enter valid Information!"}}</h3>
+    <form [formGroup]="createForm" (ngSubmit)="create()">
+      <div class="input-group input-50">
+        <label for="firstName">First Name</label>
+        <input
+          type="text"
+          id="firstName"
+          placeholder="Your First Name"
+          required
+          formControlName="firstName"
+        />
+      </div>
+      <div class="input-group input-50">
+        <label for="lastName">Last Name</label>
+        <input
+          type="text"
+          id="lastName"
+          placeholder="Your Last Name"
+          required
+          formControlName="lastName"
+
+        />
+      </div>
+      <div class="input-group">
+        <label for="email">Email Address</label>
+        <input
+          type="email"
+          id="email"
+          placeholder="Enter Your email Address"
+          formControlName="email"
+          required
+        />
+      </div>
+
+      <div class="input-group">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          placeholder="Your Password"
+          required
+          formControlName="password"
+
+        />
+      </div>
+      <div class="checkbox-group">
+        <input type="checkbox" id="terms" required  formControlName="checkedTerm"/>
+        <label for="terms">I accept all <span>terms and condition</span> </label>
+      </div>
+      <button type="submit" [disabled]="!createForm.valid">Sign up</button>
+    </form>
+    <p class="login-link">
+      Have an account, <a routerLink="/signin">log in?</a>
+    </p>
+  </div>
+</div>

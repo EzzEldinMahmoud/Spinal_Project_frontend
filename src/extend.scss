@@ -1,0 +1,12 @@
+main-buttons {
+  background: $primary-color;
+  border-radius: 13px;
+  font-size: 10px;
+  color: #fff;
+  padding: 10px;
+}
+
+.basic-shadow {
+  box-shadow: 0 0.14px 2.29266px rgba(0, 0, 0, 0.03),
+    0 0.37px 4.42626px rgba(0, 0, 0, 0.05), 0 3px 7px rgba(0, 0, 0, 0.09);
+}

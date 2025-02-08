@@ -1,0 +1,30 @@
+<div class="container">
+  <nav>
+    <a class="nav-logo" routerLink="home">
+      <img src="Logos/logo.svg" alt="" />
+    </a>
+    <div class="category">
+      <ul>
+        <li><a routerLink="home" routerLinkActive="active">Home</a></li>
+        <li>
+          <a routerLink="reservation" routerLinkActive="active">Reservation</a>
+        </li>
+        <li>
+          <a routerLink="contact" routerLinkActive="active">Contact us</a>
+        </li>
+        <li>
+          <a routerLink="about" routerLinkActive="active">About</a>
+        </li>
+      </ul>
+    </div>
+    @if(user()?.name !== null ) {
+      <p>{{user()?.name}}</p>
+    } @else {
+      <div class="register-btn">
+        <a routerLink="signup">Sign in \ create an account</a>
+      </div>
+    }
+
+  </nav>
+</div>
+

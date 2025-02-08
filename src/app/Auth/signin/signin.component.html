@@ -1,0 +1,39 @@
+<div class="signin-container section-margin">
+  <div class="hello-content">
+    <h2>Hello , Friend!</h2>
+    <p>fill up personal information and start journey with us</p>
+    <a routerLink="/signup" class="btns">sign up</a>
+    <img src="Shapes/circle.svg" class="large-circle" alt="" />
+    <img src="Shapes/circle.svg" class="small-circle" alt="" />
+    <img src="Shapes/Polygon_1.svg" class="Polygon_1" alt="" />
+    <img src="Shapes/Polygon_2.svg" class="Polygon_2" alt="" />
+    <img src="Shapes/Polygon_3.svg" class="Polygon_3" alt="" />
+  </div>
+  <div class="form-container" >
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <div class="input-group">
+        <label for="email">Email Address</label>
+        <input
+          type="email"
+          id="email"
+          placeholder="Enter Your email Address"
+          required
+          formControlName="emailAddress"
+
+        />
+      </div>
+      <div class="input-group">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          placeholder="Your Password"
+          required
+          formControlName="password"
+        />
+      </div>
+
+      <button type="submit" [disabled]="!loginForm.valid">Sign In</button>
+    </form>
+  </div>
+</div>

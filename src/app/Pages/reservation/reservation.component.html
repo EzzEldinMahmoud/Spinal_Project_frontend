@@ -1,0 +1,72 @@
+<div class="register-container section-margin">
+  <div class="hello-content">
+    <h2>Hello , Friend!</h2>
+    <p>Please schedule an Appointment,<br> so that we can help you</p>
+    <img src="Shapes/circle.svg" class="large-circle" alt="" />
+    <img src="Shapes/circle.svg" class="small-circle" alt="" />
+    <img src="Shapes/Polygon_1.svg" class="Polygon_1" alt="" />
+    <img src="Shapes/Polygon_2.svg" class="Polygon_2" alt="" />
+    <img src="Shapes/Polygon_3.svg" class="Polygon_3" alt="" />
+  </div>
+  <div class="form-container">
+<h2> Create Appointments </h2>
+<p [hidden]="userLogged" style="color: red;">You need to login to schedule appointments.</p>
+
+    <form [formGroup]="createAppointmentForm" (ngSubmit)="create()">
+      <div class="input-group input-50">
+        <label for="AppointmentDatetime">Appointment Date</label>
+        <input
+          type="date"
+          id="AppointmentDatetime"
+          placeholder="Choose Date & Time"
+          required
+          formControlName="appointment_date"
+
+        />
+      </div>
+      <div class="input-group input-50">
+        <label for="Appointmenttime">Appointment time</label>
+        <input
+          type="time"
+          id="AppointmentDatetime"
+          placeholder="Choose Time"
+          required
+          formControlName="appointment_time"
+        />
+      </div>
+      <div class="input-group ">
+        <label for="report">Choose your Report</label>
+        <select
+          id="email"
+          placeholder="Choose your Report"
+          formControlName="reportId"
+          required
+        >
+        @for (report of report_list.value; track report) {
+          <option [value]="report" >{{report}}</option>
+          <option value="" selected disabled hidden>Choose here</option>
+
+          } @empty {
+          <option value="" selected disabled hidden>Choose here</option>
+          <option>There are no Reports.</option>
+          }
+
+      </select>
+      </div>
+      <div class="input-group">
+        <label for="AppointmentDetails">Appointment Details</label>
+        <textarea
+          type="text"
+          id="AppointmentDetails"
+          placeholder="Write about your enquiry for the appointment please."
+          required
+          formControlName="appointmentDetails"
+        ></textarea>
+      </div>
+      <button type="submit" [disabled]="!createAppointmentForm.valid">Schedule</button>
+
+    </form>
+
+</div>
+</div>
+

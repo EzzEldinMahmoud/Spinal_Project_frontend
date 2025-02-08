@@ -1,0 +1,285 @@
+@import "../../../variables";
+@import "../../../mixins";
+@import "../../../extend";
+
+.contact-us-container {
+  margin-top: -1rem;
+  .main-title {
+    text-align: center;
+    h2 {
+      font-size: 40px;
+      font-weight: 700;
+      color: #005457;
+    }
+    p {
+      font-size: 18px;
+      font-weight: 500;
+      color: #717171;
+    }
+  }
+  .contact-content {
+    display: flex;
+    margin: 40px 0;
+    background: #fff;
+    border-radius: 35px;
+    @extend .basic-shadow;
+    .contact-info {
+      flex: 1;
+      background: #01a299;
+      color: #fff;
+      padding: 30px 30px 30px 30px;
+      display: flex;
+      border-radius: 35px 0 0 35px;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      overflow: hidden;
+      position: relative;
+      gap: 30px;
+      position: relative;
+      @extend .basic-shadow;
+      h2 {
+        margin: 0;
+        font-size: 28px;
+      }
+
+      p {
+        font-size: 16px;
+        margin: 0;
+        color: $secondary-color;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 95px 0;
+
+        li {
+          display: flex;
+          align-items: center;
+          margin: 30px 0;
+          font-weight: 300;
+          gap: 20px;
+        }
+      }
+
+      .social-icons {
+        display: flex;
+        gap: 20px;
+
+        a {
+          width: 35px;
+          display: flex;
+          height: 35px;
+          background-color: $secondary-color;
+          border-radius: 50%;
+          justify-content: center;
+          align-items: center;
+          transition: $main-transition;
+          &:hover {
+            background-color: #fff;
+            i {
+              color: #000;
+            }
+          }
+          i {
+            color: #fff;
+            font-size: 15px;
+          }
+        }
+      }
+      .contact-large-circle {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+      }
+      .contact-small-circle {
+        position: absolute;
+        bottom: 55px;
+        right: 37px;
+      }
+    }
+
+    .form-container {
+      width: 66%;
+      padding: 10px 50px;
+      .input-50 {
+        max-width: 45%;
+      }
+      form {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        height: 100%;
+      }
+      h2 {
+        text-align: left;
+        margin-bottom: 30px;
+      }
+
+      .input-group {
+        label {
+          display: block;
+          margin-bottom: 5px;
+          font-size: 12px;
+          font-weight: 500;
+          color: #8d8d8d;
+        }
+
+        input {
+          width: 100%;
+          padding: 10px 5px;
+          border: none;
+          border-bottom: 1px solid #8d8d8d;
+        }
+        input::placeholder {
+          text-align: left;
+          color: #9a9a9a;
+        }
+        input:focus {
+          outline: none;
+          border-bottom: 2px solid #01a299;
+        }
+      }
+
+      .checkbox-group {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+
+        label {
+          margin-left: 5px;
+        }
+        span {
+          color: $primary-color;
+        }
+        input[type="checkbox"] {
+          width: 26px;
+          height: 26px;
+          margin: 0 10px;
+          @extend .basic-shadow;
+        }
+      }
+
+      button {
+        background-color: #01a299;
+        color: white;
+        padding: 15px 50px;
+        border: none;
+        border-radius: 14px;
+        cursor: pointer;
+        margin-left: 69%;
+        margin-top: 40px;
+        transition: 0.3s;
+        @extend .basic-shadow;
+        transition: $main-transition;
+        &:hover {
+          background-color: $secondary-color;
+        }
+      }
+
+      .login-link {
+        text-align: center;
+        margin-top: 15px;
+
+        a {
+          color: $primary-color;
+          text-decoration: none;
+        }
+      }
+      .input-field {
+        h6 {
+          font-size: 1.1rem;
+          margin-bottom: 20px;
+        }
+        label {
+          display: block;
+          margin-bottom: 5px;
+          font-weight: bold;
+          font-size: 14px;
+        }
+
+        input,
+        textarea {
+          width: 100%;
+          padding: 10px;
+          border: 1px solid #ddd;
+          border-radius: 4px;
+          font-size: 14px;
+        }
+
+        textarea {
+          resize: none;
+          height: 100px;
+        }
+
+        /* From Uiverse.io by gharsh11032000 */
+        .radio-button-container {
+          display: flex;
+          align-items: center;
+          gap: 24px;
+        }
+
+        .radio-button {
+          display: inline-block;
+          position: relative;
+          cursor: pointer;
+        }
+
+        .radio-button__input {
+          position: absolute;
+          opacity: 0;
+          width: 0;
+          height: 0;
+        }
+
+        .radio-button__label {
+          display: inline-block;
+          padding-left: 30px;
+          position: relative;
+          font-size: 15px;
+          color: #f2f2f2;
+          font-weight: 600;
+          cursor: pointer;
+          text-transform: uppercase;
+          color: #8d8d8d;
+          font-size: 15px;
+          font-weight: 400;
+          margin-right: 20px;
+          transition: all 0.3s ease;
+        }
+
+        .radio-button__custom {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          border: 2px solid #555;
+          transition: all 0.3s ease;
+        }
+
+        .radio-button__input:checked
+          + .radio-button__label
+          .radio-button__custom {
+          background-color: #198754;
+          border-color: transparent;
+          transform: scale(0.8);
+          box-shadow: 0 0 20px #4c8bf580;
+        }
+
+        .radio-button__input:checked + .radio-button__label {
+          color: #198754;
+        }
+
+        .radio-button__label:hover .radio-button__custom {
+          transform: scale(1.2);
+          border-color: #01a299;
+          box-shadow: 0 0 20px #198754;
+        }
+      }
+    }
+  }
+}

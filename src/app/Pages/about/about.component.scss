@@ -1,0 +1,64 @@
+@import "../../../variables";
+@import "../../../mixins";
+@import "../../../extend";
+
+.about-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  min-height: 952px;
+  .about-text {
+    background-color: #fff;
+    max-width: 828px;
+    border-radius: 19px;
+    padding: 45px 55px 0px 35px;
+    border: 1px solid #01a299;
+    min-height: 952px;
+    @extend .basic-shadow;
+    h1 {
+      font-size: 48px;
+      font-weight: 700;
+      margin-bottom: 46px;
+      color: $secondary-color;
+    }
+    p {
+      color: $secondary-color;
+      line-height: 2.5;
+    }
+  }
+  .doctor-reviews {
+    width: 416px;
+    height: 577px;
+    border-radius: 19px;
+    @extend .basic-shadow;
+    .reviews {
+      background-color: #fff;
+      border-radius: 19px;
+      padding: 10px 20px 30px;
+      border: 1px solid #01a299;
+      max-height: fit-content;
+      margin-top: 36px;
+      @extend .basic-shadow;
+
+      .numbers-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+        .numbers {
+          background: rgba(250, 250, 250, 1);
+          padding: 15px 15px 25px 15px;
+          border-radius: 19px;
+          span {
+            font-size: 26px;
+            font-weight: 500;
+            color: #000;
+          }
+          p {
+            font-weight: 500;
+          }
+        }
+      }
+    }
+  }
+}

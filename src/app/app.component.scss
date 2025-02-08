@@ -1,0 +1,9 @@
+.main_margin {
+  margin-top: 8rem;
+}
+
+@media (max-width: 767px)  {
+  .main_margin {
+    margin-top: 9rem;
+  }
+}
