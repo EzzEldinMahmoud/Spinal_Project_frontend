@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { AuthServiceStateService } from '../auth/auth-service-state.service';
 import { Iappointment } from './interface/appointmentInterface';
 import { appointmentDeletePoint, backendEndPoint, createAppointmentPostPoint, getAllAppointmentGETPoint, headers } from '../../shared/Constants';
-import { take } from 'rxjs';
+import { BehaviorSubject, take } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -31,16 +31,8 @@ export class AppointmentServiceStateService {
     }
 
     create_appointment(appointmentDetails:Iappointment) {
-        console.log('====================================');
-        console.log({
-          "patient_id": this.userid,
-          "appointment_time": appointmentDetails.appointment_date + " " + appointmentDetails.appointment_time,
-          "reportDetails": appointmentDetails.reportId ? appointmentDetails.reportId : '',
-          "appointmentDetails":appointmentDetails.appointmentDetails,
-          "status":appointmentDetails.status
-        });
-        console.log('====================================');
-        this.http.post(this.create_appointment_endpoint,{
+        let created_Appointment = new BehaviorSubject<object | null>(null);
+        let created_promise = this.http.post(this.create_appointment_endpoint,{
           "patient_id": this.userid,
           "appointment_time": appointmentDetails.appointment_date + " " + appointmentDetails.appointment_time,
           "reportDetails": appointmentDetails.reportId == "There are no Reports." ? null: appointmentDetails.reportId ,
@@ -48,9 +40,17 @@ export class AppointmentServiceStateService {
           "status":appointmentDetails.status
         },{
           headers:headers
-        }).pipe(take(1)).subscribe((createdAppointment)=>{
-
-        });
+        }).pipe(take(1)).toPromise();
+        created_promise.then(async (value)=>{
+          if(value) {
+          return await value;
+          } else {
+            return  await value;
+          }
+        }).catch(e =>{
+          alert("Something went wrong!"+e);
+        })
+        return created_promise;
 
     }
     //needs refactor as asp.net have different patch req body.

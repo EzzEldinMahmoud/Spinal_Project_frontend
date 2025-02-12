@@ -63,8 +63,14 @@
           formControlName="appointmentDetails"
         ></textarea>
       </div>
-      <button type="submit" [disabled]="!createAppointmentForm.valid">Schedule</button>
+      <button type="submit" [disabled]="!createAppointmentForm.valid" >Schedule</button>
+      <p-dialog [modal]="true" [(visible)]="visible" [style]="{ width: '35rem'}" class="hello-content">
+        <div style="padding: 10px;">
+          <qrcode [qrdata]="created_appointment_QRcode.value" [width]="225" [errorCorrectionLevel]="'M'"></qrcode>
+        <h2 class="custom-colors">{{dialog_message}}</h2>
+        </div>
 
+    </p-dialog>
     </form>
 
 </div>

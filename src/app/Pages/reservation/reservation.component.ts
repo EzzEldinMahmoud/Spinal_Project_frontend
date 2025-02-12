@@ -1,19 +1,20 @@
 import { NgClass, NgFor, NgIf } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal, Signal, WritableSignal } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { AuthServiceStateService } from '../../state/auth/auth-service-state.service';
 import { AppointmentServiceStateService } from '../../state/appointments/appointment.service.state.service';
 import { Iappointment } from '../../state/appointments/interface/appointmentInterface';
 import { BehaviorSubject } from 'rxjs';
-
+import { Dialog } from 'primeng/dialog';
+import { QRCodeModule } from 'angularx-qrcode';
 @Component({
   selector: 'app-reservation',
   standalone: true,
   templateUrl: './reservation.component.html',
   styleUrl: './reservation.component.scss',
-  imports: [RouterLink,HttpClientModule,ReactiveFormsModule,NgClass,NgFor,NgIf],
+  imports: [RouterLink,HttpClientModule,ReactiveFormsModule,NgClass,NgFor,NgIf,Dialog,QRCodeModule],
   providers:[AppointmentServiceStateService,AuthServiceStateService]
 })
 export class ReservationComponent {
@@ -33,6 +34,10 @@ constructor(private appointmentService:AppointmentServiceStateService,private au
 
     });
     userLogged = false;
+    created_appointment_QRcode = new BehaviorSubject<string>('');
+    visible = signal(false);
+    dialog_message = "Reservation \n Scheduled!";
+
     ngOnInit(): void {
       if (this.authService.userId$.value.length !== 0) {
           this.getAll();
@@ -52,17 +57,29 @@ constructor(private appointmentService:AppointmentServiceStateService,private au
         });
         controls = this.createAppointmentForm.controls;
 
-    create() {
-
-      let created_appointment = this.appointmentService.create_appointment({
+    async create() {
+      let created_appointment =  this.appointmentService.create_appointment({
         status: this.controls.status.value!,
         appointment_time: this.controls.appointment_time.value!,
         appointment_date: this.controls.appointment_date.value!,
-
         reportId: this.controls.reportId.value!,
         appointmentDetails:this.controls.appointmentDetails.value!
       });
-      return created_appointment;
+      created_appointment.then(val=>{
+        this.created_appointment_QRcode.next(`${JSON.stringify(val)}`);
+        if (this.created_appointment_QRcode.value!.length > 1) {
+          this.visible.set(true);
+        } else {
+          this.visible.set(false);
+        }
+      }).catch(e =>{
+        this.dialog_message = "Something went wrong!";
+        console.log('====================================');
+        console.log(e);
+        console.log('====================================');
+      })
+
+
     }
     getAll() {
       this.appointmentService.getAll_appointment().then((list:Iappointment[]) =>{

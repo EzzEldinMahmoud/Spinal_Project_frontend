@@ -283,3 +283,25 @@
     }
   }
 }
+.image-holder{
+  width: 50%;
+  height: 50%;
+  object-fit: cover;
+  align-self: center;
+}
+.custom-colors {
+  color:$primary-color;
+  width: 100%;
+text-align: center !important;
+
+}
+.dialog-holder {
+display: flex;
+flex-direction: column;
+align-items: center;
+align-content: center;
+justify-content: center;
+justify-items: center;
+text-align: center;
+
+}

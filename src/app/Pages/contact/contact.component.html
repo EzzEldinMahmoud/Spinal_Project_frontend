@@ -115,6 +115,13 @@
           />
         </div>
         <button type="submit" [disabled]="!contactEmailForm.valid">send message</button>
+        <p-dialog [modal]="true" [(visible)]="visible" [style]="{ width: '35rem'}" class="dialog-holder">
+
+          <img class="image-holder" src="https://img.freepik.com/premium-vector/green-check-mark-icon-symbol-logo-circle-tick-symbol-green-color-vector-illustration_685751-503.jpg?w=826" alt="check_circle">
+          <h2 class="custom-colors">Sent!<br>We will get to you shortly!</h2>
+
+
+      </p-dialog>
       </form>
     </div>
   </div>

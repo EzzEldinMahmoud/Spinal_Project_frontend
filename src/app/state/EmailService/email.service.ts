@@ -17,10 +17,9 @@ export class EmailServiceTsService {
       })
       .then(
         () => {
-          alert('Sent! We will get back to you shortly.');
         },
         (error) => {
-          alert('FAILED...\n'+ error);
+          console.log('FAILED...\n'+ error);
         },
       );
   }
