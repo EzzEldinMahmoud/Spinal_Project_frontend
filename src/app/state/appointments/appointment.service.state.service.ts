@@ -31,7 +31,13 @@ export class AppointmentServiceStateService {
     }
 
     create_appointment(appointmentDetails:Iappointment) {
-        let created_Appointment = new BehaviorSubject<object | null>(null);
+      console.log('====================================');
+      console.log({"patient_id": this.userid,
+          "appointment_time": appointmentDetails.appointment_date + " " + appointmentDetails.appointment_time,
+          "reportDetails": appointmentDetails.reportId == "There are no Reports." ? null: appointmentDetails.reportId ,
+          "appointmentDetails":appointmentDetails.appointmentDetails,
+          "status":appointmentDetails.status});
+      console.log('====================================');
         let created_promise = this.http.post(this.create_appointment_endpoint,{
           "patient_id": this.userid,
           "appointment_time": appointmentDetails.appointment_date + " " + appointmentDetails.appointment_time,
@@ -43,9 +49,9 @@ export class AppointmentServiceStateService {
         }).pipe(take(1)).toPromise();
         created_promise.then(async (value)=>{
           if(value) {
-          return await value;
+          return  value;
           } else {
-            return  await value;
+            return  value;
           }
         }).catch(e =>{
           alert("Something went wrong!"+e);

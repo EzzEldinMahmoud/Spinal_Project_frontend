@@ -3,14 +3,14 @@
   <p class="header-text">We offer X-ray services, doctor appointments, and comprehensive care <br> for spinal deformities</p>
 </section>
 <main class="report-image-infobox">
-  <section>
+  <section *ngIf="!imagefile()">
     <div class="card flex flex-col gap-6 items-center justify-center">
       <p-toast />
       <p-fileupload #fu mode="basic" chooseLabel="Choose" chooseIcon="pi pi-upload" name="demo[]" url="https://www.primefaces.org/cdn/api/upload.php" accept="image/*" maxFileSize="1000000" (onUpload)="onUpload($event)" />
       <p-button label="Upload" (onClick)="fu.upload()" severity="secondary" />
   </div>
   </section>
-  <section>
+  <section *ngIf="imagefile()">
     <div class="image-holder">
   <img src="https://www.orthoclinic.com.sg/wp-content/uploads/2022/07/Spinal-Whole-Film-Xray.jpg" alt="">
   </div>

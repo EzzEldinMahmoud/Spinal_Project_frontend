@@ -25,7 +25,7 @@ constructor(private appointmentService:AppointmentServiceStateService,private au
     appointment_list = new BehaviorSubject<Iappointment[]>([]);
 
     singleAppointment = new BehaviorSubject<Iappointment>({
-          status: 3,
+          status: "",
           patientId: "",
           appointment_date: new Date(),
           appointment_time: "",
@@ -47,7 +47,7 @@ constructor(private appointmentService:AppointmentServiceStateService,private au
     }
     createAppointmentForm = this.formBuilder.group
         ({
-          status : [3],
+          status : [""],
           appointment_date : [new Date(),[Validators.required]],
           appointmentDetails: ["",[Validators.required]],
 

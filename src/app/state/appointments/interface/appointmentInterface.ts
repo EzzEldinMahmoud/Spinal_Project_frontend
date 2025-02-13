@@ -1,7 +1,7 @@
 import { Time } from "@angular/common";
 
 export interface Iappointment {
-  status?:number,
+  status?:string,
   patientId?:string,
   reportId?:string,
   appointment_date:Date,
