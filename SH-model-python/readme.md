@@ -2,6 +2,7 @@
 To run this you need python 3.12 installed.
 command to run after installation
 Don't forget to activate the virtual env
+please use pycharm
 ```
 .\venv\Scripts\activate
 pip install -r requirements.txt
