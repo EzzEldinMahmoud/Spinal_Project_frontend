@@ -1,5 +1,5 @@
 export const backendEndPoint = "http://localhost:5000/api/";
-export const Flask_backendEndPoint = "http://localhost:5000/uploadfile";
+export const Flask_backendEndPoint = "http://localhost:5500/uploadfile";
 
 export const report_Create_Point = "report/create";//userId x-ray-image
 

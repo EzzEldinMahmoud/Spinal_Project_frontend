@@ -31,7 +31,7 @@
   } @else {
     <div class="card flex flex-col gap-6 items-center justify-center m-2 p-2">
       <p-toast />
-      <p-fileupload #fu mode="basic" name="file" url="http://localhost:5000/uploadfile"  chooseLabel="Choose" chooseIcon="pi pi-upload"  accept="image/*" maxFileSize="10000000" (onUpload)="onUpload($event)" />
+      <p-fileupload #fu mode="basic" name="file" url="http://localhost:5500/uploadfile"  chooseLabel="Choose" chooseIcon="pi pi-upload"  accept="image/*" maxFileSize="10000000" (onUpload)="onUpload($event)" />
       <p-button class="text-center mt-2" label="Upload" (onClick)="fu.upload()" severity="secondary" />
   </div>
   }

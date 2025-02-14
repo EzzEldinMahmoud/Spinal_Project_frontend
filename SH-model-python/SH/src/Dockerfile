@@ -3,7 +3,7 @@ WORKDIR /usr/local/app
 
 # Copy in the source code
 COPY . ./src
-EXPOSE 5000
+EXPOSE 5500
 # Setup an app user so the container doesn't run as the root user
 RUN useradd app
 USER app

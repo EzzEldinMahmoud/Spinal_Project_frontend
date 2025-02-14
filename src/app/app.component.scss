@@ -1,17 +1,6 @@
-@import "../../node_modules/primeicons/primeicons.css";
 
 .main_margin {
   margin-top: 8rem;
-}
-@layer tailwind-base, primeng, tailwind-utilities;
-
-@layer tailwind-base {
-  @tailwind base;
-}
-
-@layer tailwind-utilities {
-  @tailwind components;
-  @tailwind utilities;
 }
 @media (max-width: 767px)  {
   .main_margin {
