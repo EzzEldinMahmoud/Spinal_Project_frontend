@@ -18,9 +18,9 @@
       </ul>
     </div>
     @if(user()) {
-        <div class="flex-row justify-center" (click)="menu.toggle($event)">
+        <div class="flex-row justify-center m-2" (click)="menu.toggle($event)">
           <p class="m-2">{{user()!.name}}</p>
-          <p-avatar icon="pi pi-user" class="flex justify-center p-4" size="large" shape="circle"  />
+          <p-avatar image="https://static.vecteezy.com/system/resources/thumbnails/002/275/847/small/male-avatar-profile-icon-of-smiling-caucasian-man-vector.jpg"  size="large" shape="circle"  />
         </div>
 
     } @else {
