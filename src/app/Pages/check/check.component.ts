@@ -24,6 +24,7 @@ export class CheckComponent {
   constructor(private messageService: MessageService,private imageupload:AiModelUploadService,private ref: ChangeDetectorRef) {}
   results:WritableSignal<results | null> = signal(null);
   xRayImage:WritableSignal<string> = signal('');
+
   onSelectFile(event: FileUploadEvent) { // called each time file input changes
     if (event.files && event.files[0]) {
       var reader = new FileReader();
@@ -40,7 +41,6 @@ export class CheckComponent {
     this.imageupload.image_upload(event.files).then(result =>{
       this.onSelectFile(event)
       this.results.set(result as results);
-
     }).catch(e=>{
       console.log('====================================');
       console.error(e);
