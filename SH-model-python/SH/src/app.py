@@ -1,17 +1,19 @@
+import json
 import os
 from flask import Flask, request, jsonify
 import classifiy_spine as cs
-
+from flask_cors import CORS
 app = Flask(__name__)
 
 # Ensure the "files" directory exists
 if not os.path.exists("files"):
   os.makedirs("files")
 
-
+CORS(app, resources={r"/*": {"origins": "*"}})
 @app.route('/uploadfile', methods=['POST'])
 def upload_file():
   try:
+    print(request.files)
     if 'file' not in request.files:
       return jsonify({"error": "No file part"}), 400
 
@@ -28,10 +30,10 @@ def upload_file():
     result = cs.classify_spine(file_location)  # Modify this to match your actual function
 
     # Return the file path and the result of classification
-    print(result)
-    return jsonify({"Prediction": result})
+    return result
 
   except Exception as e:
+    print(e)
     return jsonify({"error": str(e)}), 500
 
 

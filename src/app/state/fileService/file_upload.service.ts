@@ -2,7 +2,10 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import {  Flask_backendEndPoint, report_Create_Point } from '../../shared/Constants';
-import {  take } from 'rxjs';
+import {  BehaviorSubject, take } from 'rxjs';
+interface results {
+  emergency_level: string
+}
 @Injectable({
   providedIn: 'root'
 })
@@ -11,8 +14,8 @@ export class AiModelUploadService {
   constructor(private  http: HttpClient,private router:Router) {
 
   }
-
-  image_upload(image:File[]) {
+  result$ = new BehaviorSubject<results | null>(null);
+  async image_upload(image: File[]) {
     let fileList: File[] = image;
 
     if (fileList.length < 1) {
@@ -20,21 +23,14 @@ export class AiModelUploadService {
     }
 
     let file: File = fileList[0];
-    let formData:FormData = new FormData();
-    formData.append('uploadFile', file, file.name)
+    let formData: FormData = new FormData();
+    formData.append('file', file);  // Correctly appending the file
 
-    let headersData = {
-      'Content-Type': 'multipart/form-data',
-      'Accept': 'application/json'
-    };
-    this.http.post(`${Flask_backendEndPoint}`, formData,{
-      headers: headersData
-    })
-        .pipe(take(1))
-        .subscribe(
-            data => alert('success'+ data),
-            error => console.log(error)
-        );
-}
+    let result_promise = await this.http.post(`${Flask_backendEndPoint}`, formData) // Don't set Content-Type manually
+      .pipe(take(1))
+      .toPromise();
+      this.result$.next(result_promise as results);
+      return result_promise;
+  }
 
 }

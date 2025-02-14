@@ -2,37 +2,39 @@
   <h1 class="title-header">Upload Your X-ray Spine <br> Image to Diagnose</h1>
   <p class="header-text">We offer X-ray services, doctor appointments, and comprehensive care <br> for spinal deformities</p>
 </section>
-<main class="report-image-infobox">
-  <section *ngIf="!imagefile()">
-    <div class="card flex flex-col gap-6 items-center justify-center">
-      <p-toast />
-      <p-fileupload #fu mode="basic" chooseLabel="Choose" chooseIcon="pi pi-upload" name="demo[]" url="https://www.primefaces.org/cdn/api/upload.php" accept="image/*" maxFileSize="1000000" (onUpload)="onUpload($event)" />
-      <p-button label="Upload" (onClick)="fu.upload()" severity="secondary" />
-  </div>
-  </section>
-  <section *ngIf="imagefile()">
-    <div class="image-holder">
-  <img src="https://www.orthoclinic.com.sg/wp-content/uploads/2022/07/Spinal-Whole-Film-Xray.jpg" alt="">
-  </div>
-<div class="info-diagnose-work">
-  <div class="disease-levels-box">
-    <p>Disease name:</p>
-<hr>
-
-  </div>
-<div class="result-holder-box">
-  <div class="emergency-levels-box">
-    <p>Emergency Level:</p>
-  </div>
+<main>
+  @if(results()) {
+    <div class="report-image-infobox">
+      <div class="image-holder">
+    <img [src]="xRayImage()" alt="">
+    </div>
+  <div class="info-diagnose-work">
+    <div class="disease-levels-box">
+      <p>{{results()!.emergency_level !== 'normal' ? "Disease name: Scoliosis" : "Results: Normal" }}</p>
   <hr>
-  <div class="degree-levels-box">
-  <p>Degree:</p>
-  <!-- <p>chart</p> -->
+
+    </div>
+  <div class="result-holder-box">
+    <div class="emergency-levels-box">
+      <p>Emergency Level: {{results()!.emergency_level !== 'normal' ? "High" : "None" }}</p>
+    </div>
+    <hr>
+    <div class="degree-levels-box">
+    <p>Degree: {{results()!.emergency_level !== 'normal' ? "High" : "None" }}</p>
+    <!-- <p>chart</p> -->
+    </div>
   </div>
-</div>
-<button routerLink="/reservation">Make a Reservation</button>
-  <p routerLink="/home" style="margin-top:5px ;text-align: center;cursor: pointer;">Maybe later</p>
-</div>
-  </section>
+  <button routerLink="/reservation">Make a Reservation</button>
+    <p routerLink="/home" style="margin-top:5px ;text-align: center;cursor: pointer;">Maybe later</p>
+  </div>
+  </div>
+  } @else {
+    <div class="card flex flex-col gap-6 items-center justify-center m-2 p-2">
+      <p-toast />
+      <p-fileupload #fu mode="basic" name="file" url="http://localhost:5000/uploadfile"  chooseLabel="Choose" chooseIcon="pi pi-upload"  accept="image/*" maxFileSize="10000000" (onUpload)="onUpload($event)" />
+      <p-button class="text-center mt-2" label="Upload" (onClick)="fu.upload()" severity="secondary" />
+  </div>
+  }
+
 
 </main>
