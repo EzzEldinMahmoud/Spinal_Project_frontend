@@ -27,8 +27,7 @@ export class AuthServiceStateService {
             this.userId$.next(userId);
             this.router.navigate(["home"]);
             localStorage.setItem("userId",userId);
-            console.log(localStorage.getItem("userId"));
-
+            location.reload();
             return;
 
         });
@@ -47,6 +46,8 @@ export class AuthServiceStateService {
           this.userId$.next(userId);
           this.router.navigate(["home"]);
           localStorage.setItem("userId",userId);
+          location.reload();
+
           return;
 
       }).catch(error => {
@@ -56,14 +57,11 @@ export class AuthServiceStateService {
   }
   }
 
-  getUser() {
-    this.http.get(backendEndPoint + getUserPoint + this.userId$.value,{
+  async getUser() {
+    let User = await this.http.get(backendEndPoint + getUserPoint + this.userId$.value,{
         headers:headers
-    }).pipe(take(1)).subscribe((user:any)=>{
-      this.user$.next(user);
-
-    });
-
+    }).pipe(take(1)).toPromise();
+    return User;
   }
   validate( email: string,password:string,name?:string) {
     if(!email.toLowerCase().match(

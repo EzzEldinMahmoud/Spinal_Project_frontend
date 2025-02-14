@@ -17,8 +17,12 @@
         </li>
       </ul>
     </div>
-    @if(user()?.name !== null ) {
-      <p>{{user()?.name}}</p>
+    @if(user()) {
+        <div class="flex-row justify-center" (click)="menu.toggle($event)">
+          <p class="m-2">{{user()!.name}}</p>
+          <p-avatar icon="pi pi-user" class="flex justify-center p-4" size="large" shape="circle"  />
+        </div>
+
     } @else {
       <div class="register-btn">
         <a routerLink="signup">Sign in \ create an account</a>
@@ -27,4 +31,5 @@
 
   </nav>
 </div>
+<p-menu #menu [model]="items" [popup]="true"/>
 

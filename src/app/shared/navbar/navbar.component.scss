@@ -10,6 +10,8 @@
   transform: translateX(-50%);
   margin-bottom: 100px;
   z-index: 999;
+  display: flex;
+  width: 100%;
 }
 nav {
   display: flex;
@@ -20,6 +22,7 @@ nav {
   border-radius: 25px;
   margin-top: 10px;
   flex-wrap: wrap;
+  width: 100%;
   background: linear-gradient(
     to right,
     rgba(1, 162, 153, 0.2),
@@ -117,4 +120,9 @@ nav {
 
 /* Extra Large devices (≥1200px) */
 @media (min-width: 1200px) {
+}
+
+div {display: flex !important;}
+::ng-deep .menuc-logout{
+  color: red !important;
 }
