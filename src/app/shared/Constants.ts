@@ -1,4 +1,4 @@
-export const backendEndPoint = "http://spineproject.runasp.net/api/";
+export const backendEndPoint = "https://l9pc0mls-5000.uks1.devtunnels.ms/api/";
 export const Flask_backendEndPoint = "http://localhost:5000/uploadfile";
 
 export const report_Create_Point = "report/create";//userId x-ray-image
