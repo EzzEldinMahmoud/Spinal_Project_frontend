@@ -1,6 +1,11 @@
 python-multipart
 flask
 numpy
-tensorflow
+onnxruntime
+torch
+torchvision
+pillow
+flask-cors
+
 
 
